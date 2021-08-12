@@ -2,12 +2,13 @@ pipeline {
     agent { 
         docker { 
             image 'python:latest'
+            args '-u root'
         }
     }
     stages {
         stage('build') {
             steps {
-                sh 'sudo pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
 
