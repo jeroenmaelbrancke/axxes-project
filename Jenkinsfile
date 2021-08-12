@@ -7,7 +7,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('unit tests'){
+            steps {
+                sh 'python -m unittest test_volume_cuboid.py'
             }
         }
     }
