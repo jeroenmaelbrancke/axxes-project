@@ -1,24 +1,25 @@
 pipeline {
     environment {
-        VERSION = 'latest'
+        MY_NAME = 'Jeroen'
     }
 
     agent { 
         docker { 
-            image "python:${VERSION}"
+            image "python:latest"
         }
     }
     stages {
         stage('build') {
             steps {
                 sh 'python --version'
+                echo "Hello, my name is ${MY_NAME}"
             }
         }
     }
     post {
         always {
             echo 'This will always run'
-            echo "Python image:${VERSION}"
+            echo "Hello, my name is ${MY_NAME}"
         }
         success {
             echo 'This will run only if successful'
