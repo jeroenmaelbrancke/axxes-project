@@ -1,7 +1,11 @@
 pipeline {
+    environment {
+        VERSION = 'latest'
+    }
+
     agent { 
         docker { 
-            image 'python:latest'
+            image "python:${VERSION}"
         }
     }
     stages {
@@ -14,6 +18,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            echo "Python image:${VERSION}"
         }
         success {
             echo 'This will run only if successful'
