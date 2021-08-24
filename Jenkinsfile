@@ -1,6 +1,6 @@
 pipeline {
-    environment {
-        MY_NAME = 'Jeroen'
+    parameters {
+        string( name: 'MY_NAME', defaultValue: 'Jeroen', description: 'How should I greet the world?')
     }
 
     agent { 
