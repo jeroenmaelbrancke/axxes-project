@@ -13,6 +13,12 @@ pipeline {
             }
         }
 
+        stage('Dependency check') {
+            steps {
+                sh 'safety check'
+            }
+        }
+
         stage('unit tests'){
             steps {
                 sh 'python -m unittest test_volume_cuboid.py'
