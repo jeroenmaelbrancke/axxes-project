@@ -2,7 +2,7 @@ pipeline {
     agent { 
         docker { 
             image 'python:latest'
-            args '-u root'
+            args '-u root --entrypoint='
         }
     }
     stages {
