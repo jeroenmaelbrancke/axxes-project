@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 echo "Hello, my name is ${MY_NAME}"
+                echo "Hello, my name is ${TEST}"
             }
         }
     }
